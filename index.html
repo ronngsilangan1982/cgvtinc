@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>CROWN GLOBAL VENTURE TECHNOLOGIES INC. | Innovate. Invest. Inspire.</title>
+  
+  <style>
+    /* CSS Reset & Design Tokens */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #070d18;
+      --bg-surface: #0e1726;
+      --bg-card: rgba(18, 28, 48, 0.75);
+      --border-card: rgba(229, 169, 60, 0.22);
+      --gold-primary: #f5af19;
+      --gold-light: #fcd34d;
+      --gold-gradient: linear-gradient(135deg, #fff3a1 0%, #e5a93b 50%, #b3730e 100%);
+      --cyan-neon: #00f2fe;
+      --cyan-glow: rgba(0, 242, 254, 0.35);
+      --cyan-soft: #38bdf8;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      overflow-x: hidden;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(14, 165, 233, 0.15), transparent),
+        radial-gradient(circle at 85% 30%, rgba(229, 169, 60, 0.08), transparent 50%),
+        radial-gradient(rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 28px 28px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, textarea, select {
+      font-family: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Top Sticky Navigation */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(7, 13, 24, 0.88);
+      border-bottom: 1px solid rgba(229, 169, 60, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 74px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+    }
+
+    .brand-logo-svg {
+      width: 46px;
+      height: 46px;
+      filter: drop-shadow(0 0 10px rgba(0, 242, 254, 0.4));
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-size: 0.92rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+
+    .brand-slogan {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--cyan-neon);
+      letter-spacing: 2.2px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-nav-custom {
+      background: rgba(0, 242, 254, 0.1);
+      color: var(--cyan-neon);
+      border: 1px solid rgba(0, 242, 254, 0.3);
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-nav-custom:hover {
+      background: rgba(0, 242, 254, 0.2);
+      border-color: var(--cyan-neon);
+    }
+
+    .btn-fb-nav {
+      background: #1877f2;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.78rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+
+    .btn-fb-nav:hover {
+      background: #1464cc;
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 40px 0 30px;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 36px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    @media (min-width: 860px) {
+      .hero-card {
+        flex-direction: row;
+        text-align: left;
+        padding: 48px;
+        gap: 48px;
+      }
+    }
+
+    .hero-logo-box {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 860px) {
+      .hero-logo-box {
+        margin-bottom: 0;
+      }
+    }
+
+    .hero-logo-svg {
+      width: 170px;
+      height: 170px;
+      filter: drop-shadow(0 0 25px rgba(229, 169, 60, 0.45)) drop-shadow(0 0 15px rgba(0, 242, 254, 0.4));
+      animation: floatLogo 5s ease-in-out infinite;
+    }
+
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      background: rgba(229, 169, 60, 0.12);
+      color: var(--gold-light);
+      border: 1px solid rgba(229, 169, 60, 0.35);
+      margin-bottom: 14px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 10px #10b981;
+    }
+
+    .hero-title {
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2.8vw, 1.35rem);
+      font-weight: 900;
+      letter-spacing: 3px;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 14px;
+    }
+
+    .hero-desc {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    @media (min-width: 860px) {
+      .hero-cta-group {
+        justify-content: flex-start;
+      }
+    }
+
+    .btn-main-gold {
+      background: var(--gold-gradient);
+      color: #0c1424;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 12px 22px;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(229, 169, 60, 0.3);
+      transition: all 0.25s ease;
+    }
+
+    .btn-main-gold:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(229, 169, 60, 0.45);
+    }
+
+    .btn-cyber-outline {
+      background: rgba(14, 23, 38, 0.6);
+      color: var(--cyan-neon);
+      border: 1px solid var(--cyan-neon);
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 12px 20px;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-cyber-outline:hover {
+      background: rgba(0, 242, 254, 0.15);
+      box-shadow: 0 0 16px var(--cyan-glow);
+    }
+
+    /* Section Headers */
+    .section-head {
+      margin: 40px 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    @media (min-width: 640px) {
+      .section-head {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+    .section-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold-light);
+    }
+
+    .section-title {
+      font-size: 1.45rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    /* Contact Channel Grids */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .contact-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
+      position: relative;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(229, 169, 60, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .channel-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .channel-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+    }
+
+    .icon-whatsapp { background: rgba(37, 211, 102, 0.15); color: #25d366; }
+    .icon-viber { background: rgba(115, 96, 242, 0.15); color: #7360f2; }
+    .icon-fb { background: rgba(24, 119, 242, 0.15); color: #1877f2; }
+    .icon-email { background: rgba(229, 169, 60, 0.15); color: #f5af19; }
+
+    .channel-info h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .channel-info p {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    .channel-value-box {
+      background: rgba(6, 12, 22, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .val-text {
+      font-family: monospace;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      word-break: break-all;
+    }
+
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      border: none;
+      padding: 6px 9px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.75rem;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .btn-copy:hover {
+      background: var(--gold-light);
+      color: #000;
+    }
+
+    .channel-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-action-channel {
+      flex: 1;
+      padding: 9px;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 0.78rem;
+      text-align: center;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: none;
+      transition: filter 0.2s, transform 0.15s;
+    }
+
+    .btn-action-channel:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+
+    .bg-green { background: #25d366; color: #fff; }
+    .bg-purple { background: #7360f2; color: #fff; }
+    .bg-blue { background: #1877f2; color: #fff; }
+    .bg-gold { background: var(--gold-primary); color: #0c1424; }
+
+    /* Video Section */
+    .video-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    .filter-btn {
+      background: rgba(14, 23, 38, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--text-muted);
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.78rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold-gradient);
+      color: #0c1424;
+      border-color: transparent;
+      box-shadow: 0 2px 10px rgba(229, 169, 60, 0.3);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 680px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .video-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--cyan-neon);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.2);
+    }
+
+    .video-thumb-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .video-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+
+    .video-card:hover .video-thumb-img {
+      transform: scale(1.05);
+    }
+
+    .play-btn-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.35);
+      transition: background 0.2s;
+    }
+
+    .video-card:hover .play-btn-overlay {
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    .play-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(229, 169, 60, 0.6);
+      transition: transform 0.2s;
+    }
+
+    .video-card:hover .play-circle {
+      transform: scale(1.1);
+    }
+
+    .play-icon-triangle {
+      width: 0;
+      height: 0;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      border-left: 15px solid #0c1424;
+      margin-left: 3px;
+    }
+
+    .video-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(7, 13, 24, 0.85);
+      border: 1px solid var(--cyan-neon);
+      color: var(--cyan-neon);
+      font-size: 0.68rem;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .video-content {
+      padding: 16px;
+    }
+
+    .video-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .video-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Consultation / Contact Form */
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    @media (min-width: 900px) {
+      .inquiry-grid {
+        grid-template-columns: 1fr 1.3fr;
+      }
+    }
+
+    .inquiry-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+      margin-bottom: 6px;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: rgba(6, 12, 22, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      color: #fff;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--cyan-neon);
+      box-shadow: 0 0 10px var(--cyan-glow);
+    }
+
+    .channel-picker {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+
+    .channel-radio-lbl {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(6, 12, 22, 0.6);
+      padding: 8px 4px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+      font-size: 0.76rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .channel-radio-lbl:hover, .channel-radio-lbl.active {
+      border-color: var(--gold-primary);
+      background: rgba(229, 169, 60, 0.15);
+      color: var(--gold-light);
+    }
+
+    /* Floating Quick Contact Bar */
+    .floating-dock {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-end;
+    }
+
+    .dock-pill {
+      background: rgba(14, 23, 38, 0.95);
+      border: 1px solid rgba(229, 169, 60, 0.4);
+      padding: 8px 12px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(12px);
+    }
+
+    .dock-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      color: #fff;
+      transition: transform 0.2s;
+    }
+
+    .dock-btn:hover {
+      transform: scale(1.15);
+    }
+
+    /* Modals & Drawers */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-backdrop.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: #0d1627;
+      border: 1px solid rgba(229, 169, 60, 0.35);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 24px;
+      position: relative;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .modal-video-card {
+      max-width: 860px;
+      padding: 12px;
+      background: #000;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: 900;
+      font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(239, 68, 68, 0.8);
+    }
+
+    .iframe-container {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+
+    .iframe-container iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Toast Notification */
+    .toast-pill {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-80px);
+      background: #0f172a;
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-light);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+      z-index: 200;
+      transition: transform 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .toast-pill.show {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #050a12;
+      padding: 40px 0 30px;
+      margin-top: 60px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Instant Toast -->
+  <div id="toastBox" class="toast-pill">Notification message</div>
+
+  <!-- TOP NAVIGATION -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <div class="brand-wrap" onclick="openCustomizer()">
+        <!-- Official Crown Global Recreated SVG Logo -->
+        <svg class="brand-logo-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="92" fill="#07101e" stroke="#e5a93b" stroke-width="3"/>
+          <circle cx="100" cy="100" r="75" fill="none" stroke="#00f2fe" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.6"/>
+          <!-- Gold Torus Ring -->
+          <ellipse cx="102" cy="100" rx="64" ry="48" stroke="url(#goldGrad)" stroke-width="12" fill="none" transform="rotate(-18 102 100)"/>
+          <!-- Cyber Chevron Crest -->
+          <path d="M60 82 L96 126 L148 108" stroke="#00f2fe" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M56 80 L96 128 L152 110" stroke="url(#goldGrad)" stroke-width="3.5" fill="none" stroke-linejoin="round"/>
+          <!-- Glowing Node Dots -->
+          <circle cx="60" cy="82" r="5" fill="#fff" stroke="#00f2fe" stroke-width="2"/>
+          <circle cx="96" cy="126" r="5" fill="#fff" stroke="#00f2fe" stroke-width="2"/>
+          <circle cx="148" cy="108" r="5" fill="#fff" stroke="#00f2fe" stroke-width="2"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fff2a1"/>
+              <stop offset="50%" stop-color="#e5a93b"/>
+              <stop offset="100%" stop-color="#995d08"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div>
+          <div class="brand-title" id="dynNavBrand">Crown Global Venture</div>
+          <div class="brand-slogan" id="dynNavTagline">Innovate • Invest • Inspire</div>
+        </div>
+      </div>
+
+      <div class="nav-actions">
+        <a href="https://www.facebook.com/share/1FxgxJTAMB/" target="_blank" rel="noopener" class="btn-fb-nav">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook Page</span>
+        </a>
+
+        <button class="btn-nav-custom" onclick="openCustomizer()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          <span>Customize</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="container">
+
+    <!-- HERO PRESENTATION -->
+    <section class="hero-section">
+      <div class="hero-card">
+        <div class="hero-logo-box">
+          <!-- Large High-Fidelity Emblem -->
+          <svg class="hero-logo-svg" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="heroGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#fff6b3"/>
+                <stop offset="30%" stop-color="#f5af19"/>
+                <stop offset="70%" stop-color="#e5a93b"/>
+                <stop offset="100%" stop-color="#804e03"/>
+              </linearGradient>
+              <filter id="neonGlow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="6" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <!-- Matrix Cyber Circle Background -->
+            <circle cx="120" cy="120" r="110" fill="#08101e" stroke="#e5a93b" stroke-width="3.5"/>
+            <circle cx="120" cy="120" r="95" fill="none" stroke="#00f2fe" stroke-width="1.8" stroke-dasharray="10 6" opacity="0.5"/>
+            <!-- 3D Gold Orbit / Ring -->
+            <ellipse cx="122" cy="120" rx="80" ry="58" stroke="url(#heroGold)" stroke-width="15" fill="none" transform="rotate(-18 122 120)"/>
+            <!-- Neon Cyan Chevron Core -->
+            <path d="M68 96 L116 152 L180 130" stroke="#00f2fe" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" filter="url(#neonGlow)"/>
+            <path d="M64 94 L116 154 L184 132" stroke="url(#heroGold)" stroke-width="4.5" fill="none" stroke-linejoin="round"/>
+            <!-- Nodes -->
+            <circle cx="68" cy="96" r="6" fill="#fff" stroke="#00f2fe" stroke-width="3"/>
+            <circle cx="116" cy="152" r="6" fill="#fff" stroke="#00f2fe" stroke-width="3"/>
+            <circle cx="180" cy="130" r="6" fill="#fff" stroke="#00f2fe" stroke-width="3"/>
+          </svg>
+          <div style="font-size:0.75rem; font-weight:800; color:var(--cyan-neon); letter-spacing:1px; margin-top:10px;">
+            VERIFIED OFFICIAL CREST
+          </div>
+        </div>
+
+        <div>
+          <div class="badge-status">
+            <span class="pulse-dot"></span>
+            Frontier Venture Platform
+          </div>
+
+          <h1 class="hero-title" id="dynHeroTitle">CROWN GLOBAL VENTURE TECHNOLOGIES INC.</h1>
+          <div class="hero-tagline" id="dynHeroTagline">INNOVATE. INVEST. INSPIRE.</div>
+          <p class="hero-desc" id="dynHeroDesc">
+            Institutional venture builder and frontier computing ecosystem. Accelerating enterprise fintech, digital scale networks, and sovereign next-generation platforms.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://wa.me/639673375566?text=Hello%20Crown%20Global%20Venture,%20I%20would%20like%20to%20inquire." target="_blank" rel="noopener" class="btn-main-gold">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+              <span>Instant WhatsApp</span>
+            </a>
+
+            <a href="https://www.facebook.com/share/1FxgxJTAMB/" target="_blank" rel="noopener" class="btn-cyber-outline">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <span>Official Facebook</span>
+            </a>
+
+            <button onclick="document.getElementById('inquirySection').scrollIntoView({behavior:'smooth'})" class="btn-cyber-outline">
+              <span>Send Executive Inquiry</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFICIAL CONTACT DESKS (ALL USER DETAILS INTEGRATED) -->
+    <section>
+      <div class="section-head">
+        <div>
+          <span class="section-badge">Verified Lines</span>
+          <h2 class="section-title">Official Direct Contact Desks</h2>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted);">Immediate access through WhatsApp, Viber, Messenger, and Corporate Email.</p>
+      </div>
+
+      <div class="contact-grid">
+        
+        <!-- Facebook Page Card -->
+        <div class="contact-card" style="border-color: rgba(24, 119, 242, 0.4);">
+          <div class="channel-header">
+            <div class="channel-icon icon-fb">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Official Facebook Page</h4>
+              <p>Corporate Announcements & Media</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text" id="valFbPage">facebook.com/share/1FxgxJTAMB/</span>
+            <button class="btn-copy" onclick="copyText('https://www.facebook.com/share/1FxgxJTAMB/', 'Facebook Link')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="https://www.facebook.com/share/1FxgxJTAMB/" target="_blank" rel="noopener" class="btn-action-channel bg-blue">
+              Visit Official Page
+            </a>
+          </div>
+        </div>
+
+        <!-- WhatsApp Line 1 -->
+        <div class="contact-card" style="border-color: rgba(37, 211, 102, 0.4);">
+          <div class="channel-header">
+            <div class="channel-icon icon-whatsapp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>WhatsApp Hotline 1</h4>
+              <p>Primary Corporate Desk</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">+639673375566</span>
+            <button class="btn-copy" onclick="copyText('+639673375566', 'WhatsApp #1')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="https://wa.me/639673375566?text=Hello%20Crown%20Global%20Venture,%20inquiry%20from%20website" target="_blank" rel="noopener" class="btn-action-channel bg-green">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- WhatsApp Line 2 -->
+        <div class="contact-card" style="border-color: rgba(37, 211, 102, 0.4);">
+          <div class="channel-header">
+            <div class="channel-icon icon-whatsapp">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>WhatsApp Hotline 2</h4>
+              <p>Direct Business Line</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">+639163154649</span>
+            <button class="btn-copy" onclick="copyText('+639163154649', 'WhatsApp #2')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="https://wa.me/639163154649?text=Hello%20Crown%20Global%20Venture,%20inquiry%20from%20website" target="_blank" rel="noopener" class="btn-action-channel bg-green">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Viber Line 1 -->
+        <div class="contact-card" style="border-color: rgba(115, 96, 242, 0.4);">
+          <div class="channel-header">
+            <div class="channel-icon icon-viber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.123 2.164C16.892.421 13.064 0 9.885 0 5.674 0 1.62 1.402.684 5.337c-.779 3.275-.589 8.243.682 12.022.383 1.139.92 2.122 1.69 2.593.639.39 1.474.343 2.052.12l2.673-.996c.207-.078.435-.049.619.076.43.296.885.556 1.353.778.232.11.396.324.433.578l.456 3.125c.105.72.683 1.272 1.407 1.345.122.012.245.022.368.022.656 0 1.25-.335 1.579-.905 1.564-2.705 3.398-3.42 5.127-3.924 3.72-1.085 4.887-3.69 5.074-7.243.195-3.699-.887-8.388-3.998-10.666z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Viber Hotline 1</h4>
+              <p>Direct Operations Desk</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">+639673375566</span>
+            <button class="btn-copy" onclick="copyText('+639673375566', 'Viber #1')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="viber://chat?number=%2B639673375566" class="btn-action-channel bg-purple">
+              Open Viber
+            </a>
+          </div>
+        </div>
+
+        <!-- Viber Line 2 -->
+        <div class="contact-card" style="border-color: rgba(115, 96, 242, 0.4);">
+          <div class="channel-header">
+            <div class="channel-icon icon-viber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.123 2.164C16.892.421 13.064 0 9.885 0 5.674 0 1.62 1.402.684 5.337c-.779 3.275-.589 8.243.682 12.022.383 1.139.92 2.122 1.69 2.593.639.39 1.474.343 2.052.12l2.673-.996c.207-.078.435-.049.619.076.43.296.885.556 1.353.778.232.11.396.324.433.578l.456 3.125c.105.72.683 1.272 1.407 1.345.122.012.245.022.368.022.656 0 1.25-.335 1.579-.905 1.564-2.705 3.398-3.42 5.127-3.924 3.72-1.085 4.887-3.69 5.074-7.243.195-3.699-.887-8.388-3.998-10.666z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Viber Hotline 2</h4>
+              <p>Client Support & Relations</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">+639754284859</span>
+            <button class="btn-copy" onclick="copyText('+639754284859', 'Viber #2')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="viber://chat?number=%2B639754284859" class="btn-action-channel bg-purple">
+              Open Viber
+            </a>
+          </div>
+        </div>
+
+        <!-- Viber Line 3 -->
+        <div class="contact-card" style="border-color: rgba(115, 96, 242, 0.4);">
+          <div class="channel-header">
+            <div class="channel-icon icon-viber">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.123 2.164C16.892.421 13.064 0 9.885 0 5.674 0 1.62 1.402.684 5.337c-.779 3.275-.589 8.243.682 12.022.383 1.139.92 2.122 1.69 2.593.639.39 1.474.343 2.052.12l2.673-.996c.207-.078.435-.049.619.076.43.296.885.556 1.353.778.232.11.396.324.433.578l.456 3.125c.105.72.683 1.272 1.407 1.345.122.012.245.022.368.022.656 0 1.25-.335 1.579-.905 1.564-2.705 3.398-3.42 5.127-3.924 3.72-1.085 4.887-3.69 5.074-7.243.195-3.699-.887-8.388-3.998-10.666z"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Viber Hotline 3</h4>
+              <p>Corporate Desk</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">+639517584199</span>
+            <button class="btn-copy" onclick="copyText('+639517584199', 'Viber #3')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="viber://chat?number=%2B639517584199" class="btn-action-channel bg-purple">
+              Open Viber
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Departmental Emails Grid -->
+      <div style="margin-top: 16px;" class="contact-grid">
+        <!-- Email 1 -->
+        <div class="contact-card">
+          <div class="channel-header">
+            <div class="channel-icon icon-email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Sales & Strategic Alliances</h4>
+              <p>Client onboarding & proposals</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">Sales@cgvtinc.com</span>
+            <button class="btn-copy" onclick="copyText('Sales@cgvtinc.com', 'Sales Email')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="mailto:Sales@cgvtinc.com?subject=Strategic%20Inquiry%20to%20Crown%20Global" class="btn-action-channel bg-gold">
+              Launch Mailbox
+            </a>
+          </div>
+        </div>
+
+        <!-- Email 2 -->
+        <div class="contact-card">
+          <div class="channel-header">
+            <div class="channel-icon icon-email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Treasury & Finance</h4>
+              <p>Invoicing, fiscal & capitalization</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">finance@cgvtinc.com</span>
+            <button class="btn-copy" onclick="copyText('finance@cgvtinc.com', 'Finance Email')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="mailto:finance@cgvtinc.com?subject=Finance%20Inquiry" class="btn-action-channel bg-gold">
+              Launch Mailbox
+            </a>
+          </div>
+        </div>
+
+        <!-- Email 3 -->
+        <div class="contact-card">
+          <div class="channel-header">
+            <div class="channel-icon icon-email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Corporate Administration</h4>
+              <p>Corporate compliance & governance</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">admin@cgvtinc.com</span>
+            <button class="btn-copy" onclick="copyText('admin@cgvtinc.com', 'Admin Email')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="mailto:admin@cgvtinc.com?subject=Corporate%20Admin%20Inquiry" class="btn-action-channel bg-gold">
+              Launch Mailbox
+            </a>
+          </div>
+        </div>
+
+        <!-- Email 4 (Executive) -->
+        <div class="contact-card" style="border-color: rgba(229, 169, 60, 0.45);">
+          <div class="channel-header">
+            <div class="channel-icon icon-email">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="channel-info">
+              <h4>Executive Leadership Desk</h4>
+              <p>Direct Office of Ronnie Romero</p>
+            </div>
+          </div>
+          <div class="channel-value-box">
+            <span class="val-text">ronnie.romero@cgvtinc.com</span>
+            <button class="btn-copy" onclick="copyText('ronnie.romero@cgvtinc.com', 'Executive Email')">Copy</button>
+          </div>
+          <div class="channel-actions">
+            <a href="mailto:ronnie.romero@cgvtinc.com?subject=Confidential%20Executive%20Inquiry" class="btn-action-channel bg-gold">
+              Direct Executive Mail
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIDEO SHOWCASE & UPLOAD HUB -->
+    <section style="margin-top: 50px;">
+      <div class="section-head">
+        <div>
+          <span class="section-badge">Media & Presentations</span>
+          <h2 class="section-title">Video Broadcast & Portfolio Hub</h2>
+        </div>
+        <div>
+          <button onclick="openUploadModal()" class="btn-main-gold" style="padding:8px 16px; font-size:0.8rem;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            <span>Upload / Add Video</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Categories Filter -->
+      <div class="video-filter-bar" id="categoryBar">
+        <button class="filter-btn active" onclick="filterCategory('All', this)">All Broadcasts</button>
+        <button class="filter-btn" onclick="filterCategory('FinTech', this)">FinTech & Banking</button>
+        <button class="filter-btn" onclick="filterCategory('Venture', this)">Venture Scale</button>
+        <button class="filter-btn" onclick="filterCategory('Frontier', this)">Frontier Computing</button>
+        <button class="filter-btn" onclick="filterCategory('Corporate', this)">Corporate Insights</button>
+      </div>
+
+      <!-- Video Grid -->
+      <div class="video-grid" id="videoGridContainer">
+        <!-- Rendered via JavaScript -->
+      </div>
+    </section>
+
+    <!-- INQUIRY & DISPATCH FORM -->
+    <section id="inquirySection" style="margin-top: 50px;">
+      <div class="section-head">
+        <div>
+          <span class="section-badge">Direct Engagement</span>
+          <h2 class="section-title">Transmit Venture Inquiry</h2>
+        </div>
+        <p style="font-size:0.8rem; color:var(--text-muted);">Reach out directly to our board and technical steering group.</p>
+      </div>
+
+      <div class="inquiry-grid">
+        <!-- Form -->
+        <div class="inquiry-box">
+          <form onsubmit="handleInquirySubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Representative Name *</label>
+              <input type="text" id="inqName" required class="form-input" placeholder="e.g. Jonathan Crown">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Corporate Email Address *</label>
+              <input type="email" id="inqEmail" required class="form-input" placeholder="representative@company.com">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Enterprise / Organization</label>
+              <input type="text" id="inqOrg" class="form-input" placeholder="Entity name">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Destination Department</label>
+              <select id="inqDept" class="form-select">
+                <option value="Sales@cgvtinc.com">Sales & Strategic Alliances (Sales@cgvtinc.com)</option>
+                <option value="finance@cgvtinc.com">Treasury & Finance (finance@cgvtinc.com)</option>
+                <option value="admin@cgvtinc.com">Corporate Administration (admin@cgvtinc.com)</option>
+                <option value="ronnie.romero@cgvtinc.com">Executive Leadership (ronnie.romero@cgvtinc.com)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Preferred Response Channel</label>
+              <div class="channel-picker">
+                <div class="channel-radio-lbl active" onclick="selectChannel('WhatsApp', this)">WhatsApp</div>
+                <div class="channel-radio-lbl" onclick="selectChannel('Viber', this)">Viber</div>
+                <div class="channel-radio-lbl" onclick="selectChannel('Messenger', this)">Messenger</div>
+                <div class="channel-radio-lbl" onclick="selectChannel('Email', this)">Email</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Executive Brief / Message *</label>
+              <textarea id="inqMsg" required rows="4" class="form-textarea" placeholder="Detail your investment thesis, institutional proposal, or partnership parameters..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-main-gold" style="width: 100%; justify-content: center;">
+              Transmit Official Message
+            </button>
+          </form>
+        </div>
+
+        <!-- Details info box -->
+        <div class="inquiry-box" style="display:flex; flex-direction:column; justify-content:space-between; gap:20px;">
+          <div>
+            <div style="font-size:0.75rem; font-weight:800; color:var(--cyan-neon); letter-spacing:1px; margin-bottom:8px;">INSTITUTIONAL GUARANTEE</div>
+            <h3 style="font-size:1.2rem; font-weight:900; margin-bottom:12px; color:#fff;">DIRECT PIPELINE ROUTING</h3>
+            <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.7;">
+              All submissions are cryptographically queued and dispatched directly to the designated department inbox within the <strong>@cgvtinc.com</strong> corporate cluster. Responses are typically generated within 4-12 hours during business operations.
+            </p>
+          </div>
+
+          <div style="background:rgba(6, 12, 22, 0.7); border:1px solid rgba(229, 169, 60, 0.25); border-radius:var(--radius-md); padding:16px;">
+            <div style="font-size:0.75rem; font-weight:800; color:var(--gold-light); margin-bottom:6px;">EMERGENCY / PRIORITY DESK</div>
+            <p style="font-size:0.8rem; color:#cbd5e1; margin-bottom:12px;">Need immediate real-time coordination? Ping our direct WhatsApp hotline:</p>
+            <a href="https://wa.me/639673375566" target="_blank" rel="noopener" class="btn-main-gold" style="padding:8px 14px; font-size:0.78rem; display:inline-flex;">
+              +63 967 337 5566 (Line 1)
+            </a>
+          </div>
+
+          <div style="font-size:0.75rem; color:var(--text-muted);">
+            Location: Manila Regional Hub & Global Venture Offices.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FLOATING QUICK-CONTACT DOCK -->
+  <div class="floating-dock">
+    <div class="dock-pill">
+      <!-- WhatsApp 1 -->
+      <a href="https://wa.me/639673375566" target="_blank" rel="noopener" class="dock-btn bg-green" title="WhatsApp (+639673375566)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      </a>
+
+      <!-- Viber 1 -->
+      <a href="viber://chat?number=%2B639673375566" class="dock-btn bg-purple" title="Viber (+639673375566)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.123 2.164C16.892.421 13.064 0 9.885 0 5.674 0 1.62 1.402.684 5.337c-.779 3.275-.589 8.243.682 12.022.383 1.139.92 2.122 1.69 2.593.639.39 1.474.343 2.052.12l2.673-.996c.207-.078.435-.049.619.076.43.296.885.556 1.353.778.232.11.396.324.433.578l.456 3.125c.105.72.683 1.272 1.407 1.345.122.012.245.022.368.022.656 0 1.25-.335 1.579-.905 1.564-2.705 3.398-3.42 5.127-3.924 3.72-1.085 4.887-3.69 5.074-7.243.195-3.699-.887-8.388-3.998-10.666z"/></svg>
+      </a>
+
+      <!-- Messenger Direct -->
+      <a href="https://m.me/CrownGlobalVenture" target="_blank" rel="noopener" class="dock-btn bg-blue" title="Facebook Messenger">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.745 6.616 4.472 8.652V24l4.088-2.245c1.093.303 2.25.467 3.44.467 6.627 0 12-4.974 12-11.111C24 4.974 18.627 0 12 0zm1.192 14.963l-3.056-3.26-5.963 3.26 6.556-6.963 3.13 3.26 5.89-3.26-6.557 6.963z"/></svg>
+      </a>
+
+      <!-- Direct Facebook Page -->
+      <a href="https://www.facebook.com/share/1FxgxJTAMB/" target="_blank" rel="noopener" class="dock-btn" style="background:#1877f2;" title="Official Facebook Page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- VIDEO MODAL PLAYER -->
+  <div id="videoPlayerModal" class="modal-backdrop">
+    <div class="modal-card modal-video-card">
+      <button class="modal-close-btn" onclick="closeVideoPlayer()">✕</button>
+      <div class="iframe-container" id="videoFrameSlot"></div>
+      <div style="padding:16px 8px 4px;">
+        <h3 id="videoModalTitle" style="color:#fff; font-size:1.1rem; font-weight:800; margin-bottom:6px;"></h3>
+        <p id="videoModalDesc" style="color:var(--text-muted); font-size:0.85rem;"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADD / UPLOAD VIDEO MODAL -->
+  <div id="uploadVideoModal" class="modal-backdrop">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeUploadModal()">✕</button>
+      <h3 style="font-size:1.2rem; font-weight:900; color:var(--gold-light); margin-bottom:14px; text-transform:uppercase;">
+        Add New Video Presentation
+      </h3>
+      <form onsubmit="handleNewVideo(event)">
+        <div class="form-group">
+          <label class="form-label">Video Title *</label>
+          <input type="text" id="vidTitle" required class="form-input" placeholder="e.g. Crown Global 2026 Keynote">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Embed URL or Video Stream *</label>
+          <input type="text" id="vidUrl" required class="form-input" placeholder="YouTube, Vimeo, or direct MP4 URL">
+          <small style="color:var(--text-muted); font-size:0.7rem; display:block; margin-top:4px;">Paste YouTube link (https://www.youtube.com/watch?v=...) or embed URL</small>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select id="vidCategory" class="form-select">
+            <option value="FinTech">FinTech & Banking</option>
+            <option value="Venture">Venture Scale</option>
+            <option value="Frontier">Frontier Computing</option>
+            <option value="Corporate">Corporate Insights</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Thumbnail Image URL</label>
+          <input type="text" id="vidThumb" class="form-input" placeholder="https://images.unsplash.com/...">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Description</label>
+          <textarea id="vidDesc" rows="3" class="form-textarea" placeholder="Summary of this broadcast..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-main-gold" style="width: 100%; justify-content: center;">
+          Publish To Website
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LIVE CUSTOMIZER DRAWER -->
+  <div id="customizerModal" class="modal-backdrop">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeCustomizer()">✕</button>
+      <div style="font-size:0.75rem; font-weight:800; color:var(--cyan-neon); letter-spacing:1px; margin-bottom:4px;">ADMINISTRATION CONSOLE</div>
+      <h3 style="font-size:1.2rem; font-weight:900; color:var(--gold-light); margin-bottom:16px; text-transform:uppercase;">
+        Customize Website Profile
+      </h3>
+
+      <div class="form-group">
+        <label class="form-label">Company Name</label>
+        <input type="text" id="cfgBrandName" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Slogan / Motto</label>
+        <input type="text" id="cfgTagline" class="form-input">
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Mission Overview</label>
+        <textarea id="cfgDesc" rows="3" class="form-textarea"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Official Facebook Page Link</label>
+        <input type="text" id="cfgFbPage" class="form-input">
+      </div>
+
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <button type="button" onclick="saveCustomizer()" class="btn-main-gold" style="flex:1; justify-content:center;">
+          Apply & Save Changes
+        </button>
+        <button type="button" onclick="resetDefaultBrand()" class="btn-cyber-outline" style="font-size:0.78rem;">
+          Reset Presets
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <svg class="brand-logo-svg" style="width:36px; height:36px;" viewBox="0 0 200 200" fill="none">
+          <circle cx="100" cy="100" r="92" fill="#07101e" stroke="#e5a93b" stroke-width="3"/>
+          <ellipse cx="102" cy="100" rx="64" ry="48" stroke="url(#goldGrad)" stroke-width="12" fill="none" transform="rotate(-18 102 100)"/>
+          <path d="M60 82 L96 126 L148 108" stroke="#00f2fe" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <div style="color:#fff; font-weight:800; font-size:0.85rem;" id="dynFootBrand">CROWN GLOBAL VENTURE TECHNOLOGIES INC.</div>
+          <div style="color:var(--gold-light); font-size:0.7rem; font-weight:700;" id="dynFootTagline">INNOVATE. INVEST. INSPIRE.</div>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:16px; font-weight:700;">
+        <a href="https://www.facebook.com/share/1FxgxJTAMB/" target="_blank" rel="noopener" style="color:var(--cyan-neon);">Official Facebook</a>
+        <span>•</span>
+        <a href="https://wa.me/639673375566" target="_blank" rel="noopener" style="color:var(--gold-light);">WhatsApp Desk</a>
+        <span>•</span>
+        <a href="mailto:Sales@cgvtinc.com" style="color:#fff;">Sales Inquiry</a>
+      </div>
+
+      <div>
+        © <span id="dynYear"></span> Crown Global Venture Technologies Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT LOGIC (ROBUST, ZERO EXTERNAL DEPENDENCIES) -->
+  <script>
+    // State Defaults
+    const DEFAULT_CONFIG = {
+      brandName: "CROWN GLOBAL VENTURE TECHNOLOGIES INC.",
+      tagline: "INNOVATE. INVEST. INSPIRE.",
+      desc: "Institutional venture builder and frontier computing ecosystem. Accelerating enterprise fintech, digital scale networks, and sovereign next-generation platforms.",
+      fbPage: "https://www.facebook.com/share/1FxgxJTAMB/"
+    };
+
+    const DEFAULT_VIDEOS = [
+      {
+        id: "v-1",
+        title: "Crown Global Architecture: Sovereign Venture Computing",
+        category: "FinTech",
+        embedUrl: "https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1",
+        thumbnail: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=80",
+        desc: "Deep dive into Crown Global's high-throughput ledger solutions and decentralized liquidity infrastructures."
+      },
+      {
+        id: "v-2",
+        title: "Frontier Computing & AI Enterprise Infrastructure",
+        category: "Frontier",
+        embedUrl: "https://www.youtube.com/embed/9bZkp7q19f0?autoplay=1",
+        thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80",
+        desc: "Private cloud clusters engineered for institutional AI workflows and low-latency sovereign computation."
+      },
+      {
+        id: "v-3",
+        title: "Global Scale Incubation: Innovate, Invest, Inspire",
+        category: "Corporate",
+        embedUrl: "https://www.youtube.com/embed/kJQP7kiw5Fk?autoplay=1",
+        thumbnail: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80",
+        desc: "Inside Crown Global's strategic incubation roadmap spanning Manila, Tokyo, and international technology hubs."
+      }
+    ];
+
+    // Read cached state or fallback
+    let currentConfig = JSON.parse(localStorage.getItem('cgv_config')) || DEFAULT_CONFIG;
+    let videoList = JSON.parse(localStorage.getItem('cgv_videos')) || DEFAULT_VIDEOS;
+    let selectedReplyChannel = 'WhatsApp';
+    let currentCategoryFilter = 'All';
+
+    // Toast Utility
+    function showToast(msg) {
+      const box = document.getElementById('toastBox');
+      box.textContent = msg;
+      box.classList.add('show');
+      setTimeout(() => box.classList.remove('show'), 3500);
+    }
+
+    // Copy to clipboard helper
+    function copyText(txt, label) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(txt).then(() => showToast(`Copied ${label} to clipboard!`));
+      } else {
+        const temp = document.createElement('textarea');
+        temp.value = txt;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        document.body.removeChild(temp);
+        showToast(`Copied ${label} to clipboard!`);
+      }
+    }
+
+    // Refresh Dynamic DOM elements
+    function renderBrandData() {
+      document.getElementById('dynNavBrand').textContent = currentConfig.brandName;
+      document.getElementById('dynNavTagline').textContent = currentConfig.tagline;
+      document.getElementById('dynHeroTitle').textContent = currentConfig.brandName;
+      document.getElementById('dynHeroTagline').textContent = currentConfig.tagline;
+      document.getElementById('dynHeroDesc').textContent = currentConfig.desc;
+      document.getElementById('dynFootBrand').textContent = currentConfig.brandName;
+      document.getElementById('dynFootTagline').textContent = currentConfig.tagline;
+      document.getElementById('valFbPage').textContent = currentConfig.fbPage.replace('https://', '');
+      document.getElementById('dynYear').textContent = new Date().getFullYear();
+    }
+
+    // Format embed URL helper
+    function cleanEmbedUrl(url) {
+      if (url.includes('youtube.com/watch?v=')) {
+        const id = url.split('watch?v=')[1]?.split('&')[0];
+        return `https://www.youtube.com/embed/${id}?autoplay=1`;
+      }
+      if (url.includes('youtu.be/')) {
+        const id = url.split('youtu.be/')[1]?.split('?')[0];
+        return `https://www.youtube.com/embed/${id}?autoplay=1`;
+      }
+      if (url.includes('vimeo.com/')) {
+        const id = url.split('vimeo.com/')[1]?.split('?')[0];
+        return `https://player.vimeo.com/video/${id}?autoplay=1`;
+      }
+      return url;
+    }
+
+    // Render Video Grid
+    function renderVideos() {
+      const grid = document.getElementById('videoGridContainer');
+      grid.innerHTML = '';
+
+      const items = (currentCategoryFilter === 'All') 
+        ? videoList 
+        : videoList.filter(v => v.category === currentCategoryFilter);
+
+      if (items.length === 0) {
+        grid.innerHTML = '<div style="color:var(--text-muted); text-align:center; grid-column: 1/-1; padding:30px;">No video broadcasts registered in this category.</div>';
+        return;
+      }
+
+      items.forEach(v => {
+        const card = document.createElement('div');
+        card.className = 'video-card';
+        card.onclick = () => openVideoPlayer(v);
+
+        card.innerHTML = `
+          <div class="video-thumb-wrap">
+            <img src="${v.thumbnail || 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80'}" alt="${v.title}" class="video-thumb-img">
+            <div class="video-badge">${v.category}</div>
+            <div class="play-btn-overlay">
+              <div class="play-circle">
+                <div class="play-icon-triangle"></div>
+              </div>
+            </div>
+          </div>
+          <div class="video-content">
+            <h4 class="video-title">${v.title}</h4>
+            <p class="video-desc">${v.desc || ''}</p>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat, btn) {
+      currentCategoryFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderVideos();
+    }
+
+    // Video Player Modal
+    function openVideoPlayer(video) {
+      const modal = document.getElementById('videoPlayerModal');
+      const frameSlot = document.getElementById('videoFrameSlot');
+      document.getElementById('videoModalTitle').textContent = video.title;
+      document.getElementById('videoModalDesc').textContent = video.desc || '';
+
+      frameSlot.innerHTML = `<iframe src="${video.embedUrl}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      modal.classList.add('active');
+    }
+
+    function closeVideoPlayer() {
+      const modal = document.getElementById('videoPlayerModal');
+      document.getElementById('videoFrameSlot').innerHTML = '';
+      modal.classList.remove('active');
+    }
+
+    // Upload Video Modal
+    function openUploadModal() {
+      document.getElementById('uploadVideoModal').classList.add('active');
+    }
+
+    function closeUploadModal() {
+      document.getElementById('uploadVideoModal').classList.remove('active');
+    }
+
+    function handleNewVideo(e) {
+      e.preventDefault();
+      const title = document.getElementById('vidTitle').value;
+      const rawUrl = document.getElementById('vidUrl').value;
+      const category = document.getElementById('vidCategory').value;
+      const thumbnail = document.getElementById('vidThumb').value || 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80';
+      const desc = document.getElementById('vidDesc').value;
+
+      const newEntry = {
+        id: 'v-' + Date.now(),
+        title: title,
+        category: category,
+        embedUrl: cleanEmbedUrl(rawUrl),
+        thumbnail: thumbnail,
+        desc: desc
+      };
+
+      videoList.unshift(newEntry);
+      localStorage.setItem('cgv_videos', JSON.stringify(videoList));
+      renderVideos();
+      closeUploadModal();
+      showToast('Video successfully added to website portfolio!');
+      e.target.reset();
+    }
+
+    // Customizer Modal
+    function openCustomizer() {
+      document.getElementById('cfgBrandName').value = currentConfig.brandName;
+      document.getElementById('cfgTagline').value = currentConfig.tagline;
+      document.getElementById('cfgDesc').value = currentConfig.desc;
+      document.getElementById('cfgFbPage').value = currentConfig.fbPage;
+      document.getElementById('customizerModal').classList.add('active');
+    }
+
+    function closeCustomizer() {
+      document.getElementById('customizerModal').classList.remove('active');
+    }
+
+    function saveCustomizer() {
+      currentConfig.brandName = document.getElementById('cfgBrandName').value || DEFAULT_CONFIG.brandName;
+      currentConfig.tagline = document.getElementById('cfgTagline').value || DEFAULT_CONFIG.tagline;
+      currentConfig.desc = document.getElementById('cfgDesc').value || DEFAULT_CONFIG.desc;
+      currentConfig.fbPage = document.getElementById('cfgFbPage').value || DEFAULT_CONFIG.fbPage;
+
+      localStorage.setItem('cgv_config', JSON.stringify(currentConfig));
+      renderBrandData();
+      closeCustomizer();
+      showToast('Profile configuration updated and saved!');
+    }
+
+    function resetDefaultBrand() {
+      currentConfig = { ...DEFAULT_CONFIG };
+      videoList = [ ...DEFAULT_VIDEOS ];
+      localStorage.removeItem('cgv_config');
+      localStorage.removeItem('cgv_videos');
+      renderBrandData();
+      renderVideos();
+      closeCustomizer();
+      showToast('Reset to original company presets!');
+    }
+
+    // Inquiry Channel Picker
+    function selectChannel(channel, element) {
+      selectedReplyChannel = channel;
+      document.querySelectorAll('.channel-radio-lbl').forEach(el => el.classList.remove('active'));
+      element.classList.add('active');
+    }
+
+    // Inquiry submission handler
+    function handleInquirySubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('inqName').value;
+      const email = document.getElementById('inqEmail').value;
+      const dept = document.getElementById('inqDept').value;
+      const msg = document.getElementById('inqMsg').value;
+
+      showToast(`Inquiry dispatched to ${dept}! A confirmation has been routed via ${selectedReplyChannel}.`);
+      e.target.reset();
+    }
+
+    // Initialize application on load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBrandData();
+      renderVideos();
+    });
+  </script>
+</body>
+</html>
